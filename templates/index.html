@@ -1,0 +1,392 @@
+
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="../static/img/favicon.png">
+		<!-- Author Meta -->
+		<meta name="author" content="colorlib">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Loqmah</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="../static/css/linearicons.css">
+			<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+			<link rel="stylesheet" href="../static/css/bootstrap.css">
+			<link rel="stylesheet" href="../static/css/magnific-popup.css">
+			<link rel="stylesheet" href="../static/css/nice-select.css">
+			<link rel="stylesheet" href="../static/css/animate.min.css">
+			<link rel="stylesheet" href="../static/css/jquery-ui.css">
+			<link rel="stylesheet" href="../static/css/owl.carousel.css">
+			<link rel="stylesheet" href="../static/css/main.css">
+			<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+		</head>
+		<body>
+			<div style="overflow-x: hidden;">
+			  <header id="header" id="home">
+		  		<div class="header-top">
+		  			<div class="container">
+				  		<div class="row align-items-center">
+				  			<div class="col-lg-6 col-sm-6 col-4 header-top-left no-padding">
+					      	<div class="menu-social-icons">
+								<a href="https://www.facebook.com/loqmah/"><i class="fa fa-facebook"></i></a>
+								<a href="https://www.instagram.com/loqmahtr/"><i class="fa fa-instagram"></i></a>
+
+							</div>
+				  			</div>
+
+				  		</div>
+		  			</div>
+				</div>
+			    <div class="container main-menu">
+			    	<div class="row align-items-center justify-content-between d-flex">
+			    		<a href="{% url 'index'  %}"><img src="../static/img/indir.png" width="126" height="40" alt="" title="" /></a>
+						<nav id="nav-menu-container">
+							<ul class="nav-menu">
+							  <li class="menu-active"><a href="{% url 'index'  %}">Anasayfa</a></li>
+							  <li><a href="{% url 'about'  %}">Hakkımızda</a></li>
+
+
+
+							  <li><a href="{% url 'contact'  %}">Bize Ulaş!</a></li>
+							</ul>
+						</nav><!-- #nav-menu-container -->
+			    	</div>
+			    </div>
+			  </header><!-- #header -->
+
+			<!-- start banner Area -->
+			<section style="background: url({{ic_an1.article_image.url}}) center;
+			background-size: cover;
+			" class="banner-area relative" id="home">
+
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+
+					<div class="row fullscreen d-flex justify-content-center align-items-center">
+
+						<div class="banner-content col-lg-10 col-md-12 justify-content-center">
+								<div  style=" margin-bottom: 20px;"  class="container">
+
+										{% if messages %}
+
+											{% for message in messages %}
+											{% if message.tags == "info" %}
+											<div  class="alert alert-danger">{{ message }}</div>
+											{% else %}
+											<div  class="alert alert-{{ message.tags }}">{{ message }}</div>
+											{% endif %}
+
+											{% endfor %}
+
+										{% endif %}
+
+									{% block body %}
+
+									{% endblock body %}
+
+								</div>
+							{{ic_an1.content|safe}}
+
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->
+
+			<!-- Start home-about Area -->
+			<section class="home-about-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-9">
+							{{ic_an2.content|safe}}
+						</div>
+					</div>
+				</div>
+				<img class="about-img" src="{{ic_an2.article_image.url}}" alt="">
+			</section>
+
+			<!-- End home-about Area -->
+
+			<!-- Start item-category Area -->
+			<section class="item-category-area section-gap">
+					<div class="container">
+
+						<div class="row d-flex justify-content-center">
+							<div class="col-md-12 pb-80 header-text text-center">
+								{{ic_an3.content|safe}}
+							</div>
+						</div>
+						<div class="row">
+							{% for pro in products  %}
+							<div class="col-lg-3 col-md-6">
+									<div class="single-cat-item">
+										<div class="thumb">
+												{% if pro.pro_image %}
+												<img class="img-fluid" src="{{pro.pro_image.url}}" alt="">
+
+												{% else %}
+												{% endif %}
+
+
+										</div>
+										<a href="#"><h4>{{pro.title}}</h4></a>
+										<p>
+											{{pro.pro_content|safe}}
+										</p>
+									</div>
+								</div>
+							{% endfor %}
+
+
+
+						</div>
+						<center><a class="primary-btn mx-auto mt-80" href="#">Enfes!</a></center>
+					</div>
+				</section>
+			<!-- End item-category Area -->
+
+			<!-- Start about-video Area -->
+			<section class="about-video-area section-gap">
+				<div class="container">
+					{{ic_an4.content|safe}}
+				</div>
+			</section>
+			<!-- End about-video Area -->
+
+			<!-- Start review Area -->
+			<section style="background: url({{ic_an4.article_image.url}}) center;
+			background-size: cover;
+			color: #fff" class="review-area section-gap relative">
+				<div  class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="col-md-9 pb-40 header-text text-center">
+							<h1 class="pb-10 text-white">Şuna da bir gözat!</h1>
+							<p>
+
+								İşte hakkımızda denilenler;
+							</p>
+						</div>
+					</div>
+					<div class="row">
+							<div class="active-review-carusel">
+									{% for comment in comments  %}
+									<div class="single-review item">
+
+											<div class="title justify-content-start d-flex">
+												<a href="#"><h4>{{comment.comment_author}}</h4></a>
+												<div class="star">
+
+													{{comment.comment_script|safe}}
+												</div>
+											</div>
+											<p>
+												{{comment.comment_content}}
+											</p>
+										</div>
+									{% endfor %}
+
+
+							</div>
+						</div>
+
+				</div>
+
+			</section>
+			<!-- End review Area -->
+			<div class="container" style="margin-top: 100px;">
+					<h1>Hadi bir şeyler söyle!</h1>
+
+					<div class="card my-4">
+							<h5 class="card-header">Yorum Yap</h5>
+							<div class="card-body">
+							  <form method="POST" action="{% url 'article:comment' 1 %}">
+
+								<input type="hidden" name="csrfmiddlewaretoken" value="hUdt8YpSbJ4HUU6q1AhywFQjXcsk824FcIppSR47diSyKva1u7U5tToJXyBB6HJu">
+								{% csrf_token %}
+								<div class="form-group">
+
+										<fieldset class="rating">
+												<input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+
+												<input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+												<input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+												<input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+												<input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+										</fieldset>
+
+
+										<!--<label for="formGroupExampleInput">İsim</label>-->
+									<input name="comment_author" type="text" class="form-control" id="formGroupExampleInput" placeholder="İsminizi Girin" required="required">
+								  </div>
+								<div class="form-group">
+									<label for="formGroupExampleInput">Yorum</label>
+								  <textarea required="required" name="comment_content" class="form-control" rows="3"></textarea>
+								</div>
+
+								<button type="submit" class="btn btn-primary">Ekle</button>
+							  </form>
+							</div>
+						  </div>
+			</div>
+
+
+
+
+						</div>
+			<!-- Start blog Area -->
+			<section class="blog-area section-gap" id="blog">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-md-9 pb-30 header-text">
+							<h1>Instagram'ımıza da bir göz at!</h1>
+							<p>
+								Bizi <a href="https://www.instagram.com/loqmahtr/">@loqmahtr</a> adresi ile takip et ve hakkımızda sürekli bilgi edin. Hadi! Sen de davetlisin.
+							</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="single-blog col-lg-4 col-md-4">
+							<div class="thumb">
+								<style>video.labnol, img.labnol {max-width:100%; width: 100% !important; height: auto !important;}</style> <img class='labnol' src='https://scontent-iad3-1.cdninstagram.com/vp/f8ac240c49ff0273550d37ef140f9d4f/5DCD2AA2/t51.2885-15/e35/66381386_2417108905049950_7125983838697744887_n.jpg?_nc_ht=scontent-iad3-1.cdninstagram.com' width='1080' height='963' />Credit: @<a href='https://instagram.com/loqmahtr'>LOQMAH ®</a>
+
+							</div>
+							<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
+								<div>
+									<img class="img-fluid" src="img/user.png" alt="">
+									<a href="#"><span>loqmahtr</span></a>
+								</div>
+								<div class="meta">
+									13th Dec
+									<span class="lnr lnr-heart"></span> 15
+									<span class="lnr lnr-bubble"></span> 04
+								</div>
+							</div>
+							<a href="#">
+								<h4>Rize’nin göz bebeği 🍃🤩</h4>
+							</a>
+							<p>
+								Deneme yazısı yazmaktan yoruldum ama napalım. Ekmek parası böyle bir şey işte. Sırf alan dolsun diye bi kaç cümle saçmalamalıyım. Yoksa çok boş gözüküyor buralar.
+							</p>
+						</div>
+						<div class="single-blog col-lg-4 col-md-4">
+							<div class="thumb">
+								<style>video.labnol, img.labnol {max-width:100%; width: 100% !important; height: auto !important;}</style> <img class='labnol' src='https://scontent-iad3-1.cdninstagram.com/vp/037be6d2c8cb1da123821fee51f5aaa1/5DE98ED9/t51.2885-15/e35/s1080x1080/67280248_123095482304994_46227585985365347_n.jpg?_nc_ht=scontent-iad3-1.cdninstagram.com' width='1080' height='936' />Credit: @<a href='https://instagram.com/loqmahtr'>LOQMAH ®</a>
+							</div>
+							<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
+								<div>
+									<img class="img-fluid" src="img/user.png" alt="">
+									<a href="#"><span>loqmahtr</span></a>
+								</div>
+								<div class="meta">
+									13th Dec
+									<span class="lnr lnr-heart"></span> 15
+									<span class="lnr lnr-bubble"></span> 04
+								</div>
+							</div>
+							<a href="#">
+								<h4>Dışı çıtır çıtır, içi krema dolu, üzeri Belçika çikolata kaplı, taptaze LOQMAH’larınız sizler için hazır 💫💯 Geleneksel bir tarif ile yenilikçi kombinleriyle.. İşte #loqmah bundan ibraret 👌🏻🤗 .</h4>
+							</a>
+							<p>
+								Buralara da bi şeyler girebilirsin. Ama girmeyebilirsin de. Tamamen sana ait.
+							</p>
+						</div>
+						<div class="single-blog col-lg-4 col-md-4">
+							<div class="thumb">
+								<style>video.labnol, img.labnol {max-width:100%; width: 100% !important; height: auto !important;}</style> <img class='labnol' src='https://scontent-iad3-1.cdninstagram.com/vp/d4cf1bd1dade98338b0a440eb0d03482/5DE48458/t51.2885-15/e35/s1080x1080/66922196_2360929867560639_4218760004967159501_n.jpg?_nc_ht=scontent-iad3-1.cdninstagram.com' width='1080' height='768' />Credit: @<a href='https://instagram.com/loqmahtr'>LOQMAH ®</a>
+							</div>
+							<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
+								<div>
+									<img class="img-fluid" src="img/user.png" alt="">
+									<a href="#"><span>loqmahtr</span></a>
+								</div>
+								<div class="meta">
+									13th Dec
+									<span class="lnr lnr-heart"></span> 15
+									<span class="lnr lnr-bubble"></span> 04
+								</div>
+							</div>
+							<a href="#">
+								<h4>Bu sıkıcı pazartesi sendromunu atlatmak isteyenleri LOQMAH’a bekleriz😋 Buz gibi ev yapımı Limonatanızı unutmayın 🍋❄️💛</h4>
+							</a>
+							<p>
+								Ama sana tavsiyem buraları boş bırakma. Fakat fazla yazı müşterinin canını sıkar.
+							</p>
+						</div>
+
+
+					</div>
+				</div>
+			</section>
+			<!-- end blog Area -->
+
+
+			<!-- start footer Area -->
+			<footer class="footer-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-5 col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h6>LOQMAH</h6>
+								<p>
+									Unidecimal tarafından geliştirilmiştir
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-5  col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+							<div class="single-footer-widget">
+								<h6>Bizi takip et</h6>
+								<p>Hep sosyal kal</p>
+								<div class="footer-social d-flex align-items-center">
+									<a href="https://www.facebook.com/loqmah/"><i class="fa fa-facebook"></i></a>
+									<a href="https://www.instagram.com/loqmahtr/"><i class="fa fa-instagram"></i></a>
+
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12">
+
+							<p>unidecimal@outlook.com</p>
+							<p><a href="https://www.instagram.com/unidecimal/">Unidecimal Instagram Adresi</a></p>
+							<p>Copyright © 2019 Tüm Hakları Saklıdır.</p>
+
+					</div>
+				</div>
+			</footer>
+			</div>
+			<!-- End footer Area -->
+
+			<script src="../static/js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="../static/js/vendor/bootstrap.min.js"></script>
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="../static/js/easing.min.js"></script>
+			<script src="../static/js/hoverIntent.js"></script>
+			<script src="../static/js/superfish.min.js"></script>
+			<script src="../static/js/jquery.ajaxchimp.min.js"></script>
+			<script src="../static/js/jquery.magnific-popup.min.js"></script>
+ 			<script src="../static/js/jquery-ui.js"></script>
+			<script src="../static/js/owl.carousel.min.js"></script>
+			<script src="../static/js/jquery.nice-select.min.js"></script>
+			<script src="../static/js/mail-script.js"></script>
+			<script src="../static/js/main.js"></script>
+		</body>
+	</html>

@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-md-10 offset-md-3">
+            <h3>Makaleler</h3>
+            <hr>
+    </div>
+</div>
+{% if articles %}
+
+{% for article in articles  %}
+
+
+
+<div class="row">
+        <div class="col-md-10 offset-md-3">
+        <!-- Post Content Column -->
+        <div class="col-lg-8">
+  
+          <!-- Title -->
+          <h3 class="mt-4">{{article.title}}</h3>
+  
+          <!-- Author -->
+          <p class="lead">
+            
+            {{article.author.username}} tarafından yayınlandı.
+          </p>
+  
+          <hr>
+  
+          <!-- Date/Time -->
+          <p>{{article.created_date}}</p>
+  
+          <hr>
+  
+          <!-- Preview Image -->
+          {% if article.article_image %}
+          <img class="img-fluid rounded" src="{{article.article_image.url}}" alt="">
+          {% else %}
+          {% endif %}
+          
+  
+          <hr>
+          <!-- Post Content -->
+          <p class="lead">{{article.content|safe|truncatewords:10}}</p>
+          <a style="float:right;" href="/articles/article/{{article.id}}" class="btn btn-danger">Devamını Oku</a>
+        
+
+          <hr>
+  
+          
+  
+          
+  
+          
+  
+        </div>
+</div>
+</div>
+
+{% endfor %}
+
+{% else %}
+<div class="alert alert-danger">
+
+    Bu blogda herhangi bir makale bulunmuyorç...
+
+</div>
+{% endif %}
+
+{% endblock body %}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="../static/img/favicon.png">
+    <!-- Author Meta -->
+    <meta name="author" content="colorlib">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Hakkımızda</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+        <!--
+        CSS
+        ============================================= -->
+        <link rel="stylesheet" href="../static/css/linearicons.css">
+			<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+			<link rel="stylesheet" href="../static/css/bootstrap.css">
+			<link rel="stylesheet" href="../static/css/magnific-popup.css">
+			<link rel="stylesheet" href="../static/css/nice-select.css">
+			<link rel="stylesheet" href="../static/css/animate.min.css">
+			<link rel="stylesheet" href="../static/css/jquery-ui.css">
+			<link rel="stylesheet" href="../static/css/owl.carousel.css">
+			<link rel="stylesheet" href="../static/css/main.css">
+    </head>
+    <body>
+    <div style="overflow-x: hidden;">
+        <header id="header" id="home">
+            <div class="header-top">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-sm-6 col-4 header-top-left no-padding">
+                        <div class="menu-social-icons">
+                          <a href="https://www.facebook.com/loqmah/"><i class="fa fa-facebook"></i></a>
+                          <a href="https://www.instagram.com/loqmahtr/"><i class="fa fa-instagram"></i></a>
+
+                      </div>
+                        </div>
+
+                    </div>
+                </div>
+          </div>
+          <div class="container main-menu">
+              <div class="row align-items-center justify-content-between d-flex">
+                  <a href="{% url 'index'  %}"><img src="../static/img/indir.png" width="126" height="40" alt="" title="" /></a>
+                  <nav id="nav-menu-container">
+                      <ul class="nav-menu">
+                        <li class="menu-active"><a href="{% url 'index'  %}">Anasayfa</a></li>
+                        <li><a href="{% url 'about'  %}">Hakkımızda</a></li>
+
+
+
+                        <li><a href="{% url 'contact'  %}">Bize Ulaş!</a></li>
+                      </ul>
+                  </nav><!-- #nav-menu-container -->
+              </div>
+          </div>
+        </header><!-- #header -->
+
+        <!-- start banner Area -->
+        <section style="background: url({{ic_ab1.article_image.url}}) center; background-size: cover;" class="banner-area relative contact-banner" id="home">
+            <div class="overlay overlay-bg"></div>
+            <div class="container">
+                <div class="row d-flex align-items-center justify-content-center">
+                    <div class="about-content col-lg-12">
+                        <h1 class="text-white">
+                            Hakkımızda
+                        </h1>
+                        <p class="text-white link-nav"><a href="/index">Ana Sayfa </a>  <span class="lnr lnr-arrow-right"></span>  <a href="about.html"> Hakkımızda</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End banner Area -->
+
+        <!-- Start home-about Area -->
+        <section class="home-about-area section-gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        {{ic_ab1.content|safe}}
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- End home-about Area -->
+
+        <!-- Start review Area -->
+        <section class="review-area section-gap relative" style="background:url({{ic_ab2.article_image.url}}) center; background-size: cover;">
+            <div class="overlay overlay-bg"></div>
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-9 pb-40 header-text text-center">
+                        {{ic_ab2.content|safe}}
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        <!-- End review Area -->
+
+        <!-- Start about-video Area -->
+        <section class="about-video-area section-gap">
+            <div class="container">
+                {{ic_ab3.content|safe}}
+            </div>
+        </section>
+        <!-- End about-video Area -->
+
+        <!-- start footer Area -->
+        <footer class="footer-area section-gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h6>LOQMAH</h6>
+                            <p>
+                                Unidecimal tarafından geliştirilmiştir
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5  col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                        <div class="single-footer-widget">
+                            <h6>Bizi takip et</h6>
+                            <p>Hep sosyal kal</p>
+                            <div class="footer-social d-flex align-items-center">
+                                <a href="https://www.facebook.com/loqmah/"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/loqmahtr/"><i class="fa fa-instagram"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+
+                        <p>unidecimal@outlook.com</p>
+                        <p><a href="https://www.instagram.com/unidecimal/">Unidecimal Instagram Adresi</a></p>
+                        <p>Copyright © 2019 Tüm Hakları Saklıdır.</p>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+        <!-- End footer Area -->
+
+        <script src="../static/js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="../static/js/vendor/bootstrap.min.js"></script>
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+  			<script src="../static/js/easing.min.js"></script>
+			<script src="../static/js/hoverIntent.js"></script>
+			<script src="../static/js/superfish.min.js"></script>
+			<script src="../static/js/jquery.ajaxchimp.min.js"></script>
+			<script src="../static/js/jquery.magnific-popup.min.js"></script>
+ 			<script src="../static/js/jquery-ui.js"></script>
+			<script src="../static/js/owl.carousel.min.js"></script>
+			<script src="../static/js/jquery.nice-select.min.js"></script>
+			<script src="../static/js/mail-script.js"></script>
+			<script src="../static/js/main.js"></script>
+    </body>
+</html>
